@@ -9,7 +9,7 @@ class StudentsController extends Controller
 {
     public function welcome()
     {
-        $students = Student::all();
+        $students = Student::simplePaginate(5);
         return view('welcome', compact('students'));
     }
 
@@ -34,7 +34,23 @@ class StudentsController extends Controller
     }
 
 
-    public function updateStudent()
+    public function updateStudent(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string',
+
+            'email' => 'required|string',
+
+            'address' => 'required|string',
+        ]);
+
+        $student = Student::FindOrFail($request->input('id'));
+        $student->name = $request->input("name");
+        $student->email = $request->input("email");
+        $student->address = $request->input("address");
+
+        $student->save();
+
+        return redirect()->route('welcome');
     }
 }

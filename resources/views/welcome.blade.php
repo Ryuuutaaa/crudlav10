@@ -50,7 +50,7 @@
                                 <td>{{ $student->address }}</td>
                                 <td>
                                     <button class="btn btn-warning btn-sm" data-toggle="modal"
-                                        data-target="#editStudentModal">
+                                        data-target="#editStudentModal{{ $student->id }}">
                                         <i class="fas fa-edit"></i>
                                     </button>
                                     <form method="POST" action=" " class="d-inline">
@@ -66,6 +66,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{ $students->links() }}
             </div>
         </div>
     </div>
