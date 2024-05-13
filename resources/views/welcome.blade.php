@@ -47,7 +47,7 @@
                             <tr>
                                 <td>{{ $student->name }}</td>
                                 <td>{{ $student->email }}</td>
-                                <td>{{ $student->addreas }}</td>
+                                <td>{{ $student->address }}</td>
                                 <td>
                                     <button class="btn btn-warning btn-sm" data-toggle="modal"
                                         data-target="#editStudentModal">
@@ -75,7 +75,7 @@
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form method="POST" action=" ">
+                <form method="POST" action="{{ route('addStudent') }}">
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="addStudentModalLabel"><i class="fas fa-user-plus"></i> Add Student

@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get("/", [StudentsController::class, 'welcome'])->name("welcome");
+Route::post("/addStudent", [StudentsController::class, 'addStudent'])->name("addStudent");
