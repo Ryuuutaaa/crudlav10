@@ -53,10 +53,10 @@
                                         data-target="#editStudentModal{{ $student->id }}">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <form method="POST" action=" " class="d-inline">
+                                    <form method="POST" action="{{ route('deleteStudent') }}" class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <input type="hidden" name="studentId" value="">
+                                        <input type="hidden" name="studentId" value="{{ $student->id }}">
                                         <button class="btn btn-danger btn-sm" type="submit">
                                             <i class="fas fa-trash"></i>
                                         </button>

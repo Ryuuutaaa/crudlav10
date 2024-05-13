@@ -53,4 +53,12 @@ class StudentsController extends Controller
 
         return redirect()->route('welcome');
     }
+
+    public function deleteStudent(Request $request)
+    {
+
+        $studentId = $request->input('studentId');
+        Student::destroy($studentId);
+        return redirect()->route('welcome');
+    }
 }

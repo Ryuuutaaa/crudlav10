@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [StudentsController::class, 'welcome'])->name("welcome");
 Route::post("/addStudent", [StudentsController::class, 'addStudent'])->name("addStudent");
 Route::post("/updateStudent", [StudentsController::class, 'updateStudent'])->name("updateStudent");
+Route::delete("/deleteStudent", [StudentsController::class, 'deleteStudent'])->name("deleteStudent");
