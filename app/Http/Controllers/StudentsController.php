@@ -32,4 +32,9 @@ class StudentsController extends Controller
 
         return redirect()->route('welcome');
     }
+
+
+    public function updateStudent()
+    {
+    }
 }
