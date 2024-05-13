@@ -15,11 +15,12 @@
 </head>
 
 <body>
-<nav class="navbar navbar-dark bg-light">
-  <a class="navbar-brand text-dark" href="#"><b>Crud Application Laravel 10</b></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-   </button> 
-</nav>
+    <nav class="navbar navbar-dark bg-light">
+        <a class="navbar-brand text-dark" href="#"><b>Crud Application Laravel 10</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        </button>
+    </nav>
 
 
     <div class="container mt-5">
@@ -27,8 +28,9 @@
             <div class="col-md-12">
                 <h3 class="text-black">Laravel 10 Crud Application </h3>
                 <hr>
-                <button type="button" class="btn btn-primary btn-sm mb-3" data-toggle="modal" data-target="#addStudentModal">
-                <i class="fas fa-user-plus"></i>    Add
+                <button type="button" class="btn btn-primary btn-sm mb-3" data-toggle="modal"
+                    data-target="#addStudentModal">
+                    <i class="fas fa-user-plus"></i> Add
                 </button>
 
                 <table class="table table-bordered">
@@ -41,28 +43,29 @@
                         </tr>
                     </thead>
                     <tbody>
-                         <tr>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td>
-                                <button class="btn btn-warning btn-sm" data-toggle="modal"
-                                    data-target="#editStudentModal">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <form method="POST" action=" " class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <input type="hidden" name="studentId" value="">
-                                    <button class="btn btn-danger btn-sm" type="submit">
-                                        <i class="fas fa-trash"></i>
+                        @foreach ($students as $student)
+                            <tr>
+                                <td>{{ $student->name }}</td>
+                                <td>{{ $student->email }}</td>
+                                <td>{{ $student->addreas }}</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm" data-toggle="modal"
+                                        data-target="#editStudentModal">
+                                        <i class="fas fa-edit"></i>
                                     </button>
-                                </form>
-                            </td>
-                        </tr>
-                         
+                                    <form method="POST" action=" " class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="hidden" name="studentId" value="">
+                                        <button class="btn btn-danger btn-sm" type="submit">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
-                </table> 
+                </table>
             </div>
         </div>
     </div>
@@ -75,7 +78,8 @@
                 <form method="POST" action=" ">
                     @csrf
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addStudentModalLabel"><i class="fas fa-user-plus"></i> Add Student</h5>
+                        <h5 class="modal-title" id="addStudentModalLabel"><i class="fas fa-user-plus"></i> Add Student
+                        </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -104,15 +108,16 @@
     </div>
 
     <!-- Edit Student Modal (for each student) -->
-     
-    <div class="modal fade" id="editStudentModal" tabindex="-1" role="dialog"
-        aria-labelledby="editStudentModalLabel" aria-hidden="true">
+
+    <div class="modal fade" id="editStudentModal" tabindex="-1" role="dialog" aria-labelledby="editStudentModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form method="POST" action=" ">
                     @csrf
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editStudentModalLabel "><i class="fas fa-edit"></i> Edit Student</h5>
+                        <h5 class="modal-title" id="editStudentModalLabel "><i class="fas fa-edit"></i> Edit Student
+                        </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -129,13 +134,13 @@
                         </div>
                         <div class="form-group">
                             <label for="address"><i class="fas fa-address-card"></i> Address</label>
-                            <input type="text" name="address" value=" " class="form-control"
-                                required>
+                            <input type="text" name="address" value=" " class="form-control" required>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Changes</button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save
+                            Changes</button>
                     </div>
                 </form>
             </div>
